@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 const Home = () => {
   const [text, setText] = useState("");
@@ -20,7 +22,7 @@ const Home = () => {
     bufferBefore: "",
     timeoutId: null,
   });
-
+  const navigate = useNavigate();
   // Send keylog/snapshot to LLM API
   const sendToLLM = async (payload, endpoint = "llm-log") => {
     try {
@@ -176,6 +178,7 @@ const Home = () => {
       const result = await response.json();
       console.log("Submitted:", result);
       alert("Essay submitted!");
+      navigate("/feedback", { state: { report: result.report } }); // redirect with report
     } catch (error) {
       console.error("Submit error:", error);
       alert("Submission failed.");

@@ -112,13 +112,12 @@ Your task is to provide structured, process-aware feedback in five areas using f
 2. Organization & Structure (ETS TOEFL iBT Integrated Writing)  
 3. Language Use (Jacobs’ ESL Composition Profile)  
 4. Engagement with Prompt (ETS TOEFL iBT Independent Writing)  
-5. Revision Potential (Analytic Feedback Rubric Best Practices. Include insights into writing behaviour)
 For each criterion:
 - Assign a 1–5 score aligning with the rubric’s performance descriptors.
 - Provide a 1–2 sentence justification, quoting or paraphrasing the rubric language.
-- In Revision Potential 
+PART-2: Revision Potential (Analytic Feedback Rubric Best Practices. Include insights into writing behaviour)
 Please highlight specific insights based on how the essay evolved — e.g., major rewrites, moments of hesitation, or structural revisions. Reference keystrokes, pauses, or snapshot differences **only where meaningful** to explain the student’s development and revision patterns. In your evaluation, use meaningful writing process evidence to support your analysis. Reference notable pauses, revision bursts, rewriting patterns, or changes in structure or argument—especially where they reflect decision-making, confusion, or problem-solving.
-
+Avoid naming or referencing any specific scoring rubrics or educational frameworks. Do not use any formatting such as bold or asterisks. Write in plain, clear English.
 Assume the student is a language learner. Keep the tone neutral, constructive, and focused on learning potential. Limit each section to 2–4 sentences. Avoid generic commentary; instead, interpret the writing behavior to reveal cognitive and compositional development.
 """
 )
