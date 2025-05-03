@@ -1,0 +1,28 @@
+# Python
+venv/
+backend/venv/
+
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.sqlite3
+*.log
+*.env
+*.DS_Store
+
+# React/Node.js
+node_modules/
+build/
+dist/
+.env.local
+.env.development
+.env.test
+.env.production
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
