@@ -9,7 +9,7 @@ const Home = () => {
   const [loggedText, setLoggedText] = useState([]);
   const [prompt, setPrompt] = useState("");
   const [score, setScore] = useState(0);
-  const [timer, setTimer] = useState(15 * 60); // 15 minutes
+  const [timer, setTimer] = useState(20 * 60); // 15 minutes
   const [timerStarted, setTimerStarted] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -178,7 +178,7 @@ const Home = () => {
       const result = await response.json();
       console.log("Submitted:", result);
       alert("Essay submitted!");
-      navigate("/feedback", { state: { report: result.report } }); // redirect with report
+      navigate("/feedback", { state: { report: result.report,  user_id } }); // redirect with report
     } catch (error) {
       console.error("Submit error:", error);
       alert("Submission failed.");
