@@ -11,8 +11,8 @@ const Guidelines = () => {
         You will write a short English essay based on a prompt. This is part of a study to understand how students think, write, and revise during essay writing.
       </p>
 
-      <p><strong>Time Limit:</strong> 15 minutes<br />
-        <strong>Word Limit:</strong> 200–300 words
+      <p><strong>Time Limit:</strong> 20 minutes<br />
+        <strong>Word Limit:</strong> 250–300 words
       </p>
 
       <p><strong>Instructions:</strong><br />
