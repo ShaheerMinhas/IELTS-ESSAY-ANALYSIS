@@ -18,7 +18,8 @@ from utils import get_image_paths, delete_image
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=["http://localhost:5173",
+    "https://essaylogger.netlify.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
