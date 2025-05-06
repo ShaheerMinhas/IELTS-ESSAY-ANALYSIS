@@ -118,7 +118,7 @@ For each criterion:
 PART-2: Revision Potential (Analytic Feedback Rubric Best Practices. Include insights into writing behaviour)
 Please highlight specific insights based on how the essay evolved — e.g., major rewrites, moments of hesitation, or structural revisions. Reference keystrokes, pauses, or snapshot differences **only where meaningful** to explain the student’s development and revision patterns. In your evaluation, use meaningful writing process evidence to support your analysis. Reference notable pauses, revision bursts, rewriting patterns, or changes in structure or argument—especially where they reflect decision-making, confusion, or problem-solving.
 Avoid naming or referencing any specific scoring rubrics or educational frameworks. Do not use any formatting such as bold or asterisks. Write in plain, clear English.
-Assume the student is a language learner. Keep the tone neutral, constructive, and focused on learning potential. Limit each section to 2–4 sentences. Avoid generic commentary; instead, interpret the writing behavior to reveal cognitive and compositional development.
+Assume the student is a language learner. Keep the tone neutral, constructive, and focused on learning potential. Limit each section to 2–4 sentences and Revision section to 5-6 sentences. Avoid generic commentary; instead, interpret the writing behavior to reveal cognitive and compositional development.
 """
 )
 
@@ -132,19 +132,35 @@ Assume the student is a language learner. Keep the tone neutral, constructive, a
     
     return {"report": response.text}
 
+import random
+import time
+
 @app.get("/prompt")
 async def get_prompt():
-    model = genai.GenerativeModel(model_name="gemini-1.5-flash")
-    response = model.generate_content(
-    "You are an expert English essay writing instructor and educational researcher. "
-    "Generate one randomized essay prompt (and non repeated) suitable for a 15-minute timed writing task. Each prompt should be:\n"
-    "- Answerable within 200–300 words\n"
-    "- Focused enough to encourage quick thinking and structured response\n"
-    "- Designed to reveal reasoning, opinion, or personal reflection\n"
-    "- Appropriate for undergraduate students from diverse backgrounds\n"
-    "- Categorized by type: Argumentative, Analytical, or Reflective\n"
-    "- Ensure a mix of real-world relevance and academic tone. Avoid overly complex topics.\n"
-    "Do not provide answers—only the prompt and type."
-    "Return the results in plain text format, without using Markdown symbols like ** or bullet points or headings. "
-    )
-    return {"prompt": response.text}
+    topics = [
+        # Argumentative / Opinion-Based
+        "Should schools eliminate homework for better mental health?",
+        "Is online learning as effective as traditional classroom learning?",
+        "Should students be allowed to use AI tools during writing assignments?",
+        "Can daily reading improve overall writing skills?",
+        "Should smartphones be banned in classrooms?",
+        # Descriptive / Reflective
+        "Describe a place that has had a deep impact on you.",
+        "A typical day in the life of a university student.",
+        "Describe the most useful app or technology you use daily.",
+        "Your experience learning something difficult and how you overcame it.",
+        "The impact of music or art on your productivity and focus.",
+        # Analytical / Expository
+        "How social media affects students’ attention spans.",
+        "The role of libraries in the digital age.",
+        "The benefits and drawbacks of part-time jobs for students.",
+        "The importance of writing by hand in the digital era.",
+        "How technology is reshaping the future of education."
+    ]
+    
+    # Use time as a seed to ensure randomness
+    random.seed(time.time())
+    prompt = random.choice(topics)
+    
+    return {"prompt": prompt}
+

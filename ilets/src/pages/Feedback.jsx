@@ -28,6 +28,20 @@ const FeedbackPage = () => {
         {report}
       </div>
 
+      <div style={{ marginTop: "40px", fontSize: "16px" }}>
+        <p>
+          We’d appreciate your feedback on this tool. Please fill out this short form:
+        </p>
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLScH4szgpmupQ7NW4DkI_CmGiV925vsVCuaTGBCs7vce6ydtbg/viewform?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "#1a73e8", textDecoration: "underline" }}
+        >
+          Give Feedback via Google Form
+        </a>
+      </div>
+
       <div style={{ marginTop: "30px" }}>
         <button onClick={() => navigate("/")}>Back to Home</button>
         <button

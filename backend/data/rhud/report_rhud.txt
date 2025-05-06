@@ -1,0 +1,19 @@
+1. Thesis & Argumentation: Score 2
+
+The essay lacks a clear, concise thesis statement directly addressing the prompt's focus on filter bubbles and echo chambers. While the student touches upon social media bias and manipulation, the argument remains underdeveloped and lacks a central claim connecting these issues to the formation of political opinions.  The connection between the examples provided and the core argument is weak, lacking the depth of analysis needed for a higher score.
+
+2. Organization & Structure: Score 3
+
+The essay presents a series of loosely connected assertions about social media's negative impacts.  While the structure progresses somewhat linearly, it lacks clear topic sentences to guide the reader through each point. The transition between discussing algorithms and their psychological effects is abrupt, lacking cohesion.  A more structured approach with paragraphing and clear transitions would improve the essay.
+
+3. Language Use: Score 2
+
+The writing demonstrates significant grammatical and vocabulary issues which interfere with the essay's clarity.  For example,  sentence structures are frequently convoluted and unclear.  While the student attempts to incorporate more sophisticated vocabulary, errors in word choice and tense consistency are frequent and impede comprehension.   Many words are misspelled.
+
+4. Engagement with Prompt: Score 2
+
+The essay partially addresses the prompt's directive by mentioning social media bias and manipulation. However, the core concepts of “filter bubbles” and “echo chambers” are not thoroughly explored or analyzed.  While there is surface level discussion of content regulation and bias, these discussions are not linked to how these factors shape political opinions, the prompt's main objective.
+
+PART-2: Revision Potential
+
+The keylog data reveals a significant amount of backspacing and revision, suggesting difficulty formulating ideas and expressing them precisely.  Frequent pauses and multiple revisions of sentences (for example, the extended work on the Meta section) point to struggles with both grammatical accuracy and argument articulation. The student revises repeatedly, attempting to clarify their point on the influence of algorithms, but the writing process highlights the need for more substantial planning and prewriting to better articulate their ideas.  The essay's evolution shows the student's attempts to develop their arguments, but these efforts could be enhanced with more structured outlining and focused research.  The abrupt inclusion of Microsoft Azure and Project Nimbus demonstrates an attempt at wider illustration of the effects of algorithms, but fails to connect it strongly enough to the thesis.
