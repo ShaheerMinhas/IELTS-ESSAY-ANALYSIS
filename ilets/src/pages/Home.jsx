@@ -43,7 +43,7 @@ const Home = () => {
   useEffect(() => {
     const fetchPrompt = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/prompt");
+        const response = await fetch("https://nlp-project-14iy.onrender.com/prompt");
         const data = await response.json();
         setPrompt(data.prompt);
         setTimerStarted(true);
