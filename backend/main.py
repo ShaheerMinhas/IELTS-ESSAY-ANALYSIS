@@ -97,31 +97,39 @@ async def get_report(data: ReportData):
     #generate report
     model = genai.GenerativeModel(model_name="gemini-1.5-flash")
     print(data)
-    response = model.generate_content(
-    f"""
-You are an expert university writing instructor and educational researcher. 
-You are evaluating a timed student essay writing task. In addition to the final essay, you have access to the student's full writing process, including:
+    response = model.generate_content(f"""
+    You are an expert university writing instructor and educational researcher. 
+    You are evaluating a timed student essay writing task. In addition to the final essay, you have access to the student's full writing process, including:
 
-- Essay Topic: {data.topic}
-- Final Essay: {data.essay}
-- Writing Snapshots (chronological captures of writing at different timestamps): {data.snapshot}
-- Keylogs (detailed edit history, including pauses, deletions, rewrites, backspaces, and changes over time): {data.keylogs}
+    - Essay Topic: {data.topic}
+    - Final Essay: {data.essay}
+    - Writing Snapshots (chronological captures of writing at different timestamps): {data.snapshot}
+    - Keylogs (detailed edit history, including pauses, deletions, rewrites, backspaces, and changes over time): {data.keylogs}
 
-Your task is to provide structured, process-aware feedback in five areas using following rubric:
+    Your task is to provide structured feedback in five areas:
 
-1. Thesis & Argumentation (AAC&U VALUE Written Communication)  
-2. Organization & Structure (ETS TOEFL iBT Integrated Writing)  
-3. Language Use (Jacobs’ ESL Composition Profile)  
-4. Engagement with Prompt (ETS TOEFL iBT Independent Writing)  
-For each criterion:
-- Assign a 1–5 score aligning with the rubric’s performance descriptors.
-- Provide a 1–2 sentence justification, quoting or paraphrasing the rubric language.
-PART-2: Revision Potential (Analytic Feedback Rubric Best Practices. Include insights into writing behaviour)
-Please highlight specific insights based on how the essay evolved — e.g., major rewrites, moments of hesitation, or structural revisions. Reference keystrokes, pauses, or snapshot differences **only where meaningful** to explain the student’s development and revision patterns. In your evaluation, use meaningful writing process evidence to support your analysis. Reference notable pauses, revision bursts, rewriting patterns, or changes in structure or argument—especially where they reflect decision-making, confusion, or problem-solving.
-Avoid naming or referencing any specific scoring rubrics or educational frameworks. Do not use any formatting such as bold or asterisks. Write in plain, clear English.
-Assume the student is a language learner. Keep the tone neutral, constructive, and focused on learning potential. Limit each section to 2–4 sentences and Revision section to 5-6 sentences. Avoid generic commentary; instead, interpret the writing behavior to reveal cognitive and compositional development.
-"""
-)
+    1. Thesis & Argumentation (AAC&U VALUE Written Communication)  
+    2. Organization & Structure (ETS TOEFL iBT Integrated Writing)  
+    3. Language Use (Jacobs’ ESL Composition Profile)  
+    4. Engagement with Prompt (ETS TOEFL iBT Independent Writing) 
+
+    For each of the first four, do the following:
+    - Assign a score from 1–5, based on observed performance.
+    - Justify the score in 1–2 sentences, using precise, objective descriptions of strengths or limitations.
+
+    PART-2: Revision Potential (Interpret writing process behaviors)
+
+    Provide a 5–6 sentence analysis of the student’s writing and revision behavior. Your focus is on the student’s cognitive and compositional strategies, as evidenced in the writing process.
+
+    In your analysis:
+    - Refer to how key sentences (e.g., thesis, topic sentences, conclusion) evolved over time and whether they show development in clarity, structure, or logic.
+    - Identify if the student made repeated changes to the same sentence or phrase, suggesting lexical uncertainty or cohesion concerns.
+    - Note whether pauses clustered before specific sections (e.g., conclusion), indicating potential difficulty organizing ideas.
+    - If the student revised whole paragraphs or changed argument order, explain what this implies about their sense of structure.
+    - Avoid generic comments; interpret revisions, pauses, or rewrites only when they reveal cognitive effort, confusion, problem-solving, or growth.
+
+    Do not use rubric names or formatting (e.g., bold, bullets). Use clear, plain English and maintain a constructive, learning-focused tone. Assume the student is a language learner.
+    """)
 
     print(response.text)
     
