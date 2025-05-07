@@ -174,7 +174,11 @@ const Home = () => {
         }),
       });
 
-      if (!response.ok) throw new Error("Failed to submit.");
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        const message = errorData.detail || errorData.message || "Unknown server error.";
+        throw new Error(message);
+      }
       const result = await response.json();
       console.log("Submitted:", result);
       alert("Essay submitted!");
@@ -182,6 +186,7 @@ const Home = () => {
     } catch (error) {
       console.error("Submit error:", error);
       alert("Submission failed.");
+      setSubmitted(false);
     }
   };
 
