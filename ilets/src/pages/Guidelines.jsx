@@ -12,7 +12,7 @@ const Guidelines = () => {
       </p>
 
       <p><strong>Time Limit:</strong> 20 minutes<br />
-        <strong>Word Limit:</strong> 200–300 words
+        <strong>Word Limit:</strong> 250–300 words
       </p>
 
       <p><strong>Instructions:</strong><br />
