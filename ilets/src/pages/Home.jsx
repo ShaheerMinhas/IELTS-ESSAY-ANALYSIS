@@ -189,6 +189,8 @@ const Home = () => {
       setSubmitted(false);
     }
   };
+  const wordCount = text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
+
 
   return (
     <>
@@ -222,6 +224,10 @@ const Home = () => {
             backgroundColor: submitted || timer === 0 ? "#eee" : "white",
           }}
         />
+        <div style={{ marginTop: "8px", textAlign: "right", fontSize: "14px", color: "#555" }}>
+         Word Count: {wordCount}
+        </div>
+
       </div>
 
       <div style={{ marginTop: "1%", textAlign: "left" }}>

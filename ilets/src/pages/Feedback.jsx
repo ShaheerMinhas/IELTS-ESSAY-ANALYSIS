@@ -12,7 +12,7 @@ const FeedbackPage = () => {
       <h2>Essay Feedback Report</h2>
       <p><strong>User ID:</strong> {user_id}</p>
       <p style={{ fontStyle: "italic", color: "#555" }}>
-        This feedback is based on your final essay, writing snapshots, and keylog behavior during the 15-minute task.
+        This feedback is based on your final essay, writing snapshots, and keylog behavior during the 20-minute task.
       </p>
 
       <div
