@@ -18,11 +18,12 @@ CLOUDINARY_UPLOAD_PRESET = "nlp-ielts"  # Replace with actual preset name
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "https://essaylogger.netlify.app"],
+    allow_origins=["*"],  # You can change this to specific origins
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["*"],  # This allows all HTTP methods like GET, POST, etc.
+    allow_headers=["*"],  # This allows all headers
 )
+
 
 # Setup directories
 IMAGES_DIR = Path("images")
