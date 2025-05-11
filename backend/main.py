@@ -139,16 +139,19 @@ async def get_report(data: ReportData):
 @app.get("/prompt")
 async def get_prompt():
     topics = [
+        # Argumentative / Opinion-Based
         "Should schools eliminate homework for better mental health?",
         "Is online learning as effective as traditional classroom learning?",
         "Should students be allowed to use AI tools during writing assignments?",
         "Can daily reading improve overall writing skills?",
         "Should smartphones be banned in classrooms?",
+        # Descriptive / Reflective
         "Describe a place that has had a deep impact on you.",
         "A typical day in the life of a university student.",
         "Describe the most useful app or technology you use daily.",
         "Your experience learning something difficult and how you overcame it.",
         "The impact of music or art on your productivity and focus.",
+        # Analytical / Expository
         "How social media affects students’ attention spans.",
         "The role of libraries in the digital age.",
         "The benefits and drawbacks of part-time jobs for students.",
