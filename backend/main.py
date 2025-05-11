@@ -90,14 +90,31 @@ async def get_report(data: ReportData):
 
     # Generate feedback report using Gemini
     model = genai.GenerativeModel(model_name="gemini-1.5-flash")
-    response = model.generate_content(f"""
-You are an expert university writing instructor... [TRUNCATED for brevity]
+    response = model.generate_content(
+    f"""
+    You are an expert university writing instructor and educational researcher. 
+    You are evaluating a timed student essay writing task. In addition to the final essay, you have access to the student's full writing process, including:
+
     - Essay Topic: {data.topic}
     - Final Essay: {data.essay}
-    - Writing Snapshots: {data.snapshot}
-    - Keylogs: {data.keylogs}
-[... see original full prompt text here ...]
-    """)
+    - Writing Snapshots (chronological captures of writing at different timestamps): {data.snapshot}
+    - Keylogs (detailed edit history, including pauses, deletions, rewrites, backspaces, and changes over time): {data.keylogs}
+
+    Your task is to provide structured feedback in five areas:
+
+    1. Thesis & Argumentation (AAC&U VALUE Written Communication)  
+    2. Organization & Structure (ETS TOEFL iBT Integrated Writing)  
+    3. Language Use (Jacobs’ ESL Composition Profile)  
+    4. Engagement with Prompt (ETS TOEFL iBT Independent Writing)  
+    For each criterion:
+    - Assign a 1–5 score aligning with the rubric’s performance descriptors.
+    - Provide a 1–2 sentence justification, quoting or paraphrasing the rubric language.
+    PART-2: Revision Potential (Analytic Feedback Rubric Best Practices. Include insights into writing behaviour)
+    Please highlight specific insights based on how the essay evolved — e.g., major rewrites, moments of hesitation, or structural revisions. Reference keystrokes, pauses, or snapshot differences **only where meaningful** to explain the student’s development and revision patterns. In your evaluation, use meaningful writing process evidence to support your analysis. Reference notable pauses, revision bursts, rewriting patterns, or changes in structure or argument—especially where they reflect decision-making, confusion, or problem-solving.
+    Avoid naming or referencing any specific scoring rubrics or educational frameworks. Do not use any formatting such as bold or asterisks. Write in plain, clear English.
+    Assume the student is a language learner. Keep the tone neutral, constructive, and focused on learning potential. Limit each section to 2–4 sentences and Revision section to 5-6 sentences. Avoid generic commentary; instead, interpret the writing behavior to reveal cognitive and compositional development.
+    """
+)
     feedback = response.text
 
     report_file = user_dir / f"report_{user_id}.txt"
