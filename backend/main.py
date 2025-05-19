@@ -28,7 +28,7 @@ app.add_middleware(
 # Setup directories
 IMAGES_DIR = Path("images")
 IMAGES_DIR.mkdir(exist_ok=True)
-genai.configure(api_key="AIzaSyA-_vDMMyHnv77Bf9oZ6JxmapzEGcO5ArI")
+genai.configure(api_key="AIzaSyCZthqdIZs20f4YTIFx2mgPcDbZ6iq9_Hc")
 
 # Models
 class Snapshot(BaseModel):
