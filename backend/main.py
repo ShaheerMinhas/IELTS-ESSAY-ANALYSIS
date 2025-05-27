@@ -28,7 +28,7 @@ app.add_middleware(
 # Setup directories
 IMAGES_DIR = Path("images")
 IMAGES_DIR.mkdir(exist_ok=True)
-genai.configure(api_key="AIzaSyCZthqdIZs20f4YTIFx2mgPcDbZ6iq9_Hc")
+genai.configure(api_key="AIzaSyA-_vDMMyHnv77Bf9oZ6JxmapzEGcO5ArI")
 
 # Models
 class Snapshot(BaseModel):
@@ -145,18 +145,31 @@ async def get_prompt():
         "Should students be allowed to use AI tools during writing assignments?",
         "Can daily reading improve overall writing skills?",
         "Should smartphones be banned in classrooms?",
+        "Should universities make attendance optional for all lectures?",
+        "Is it ethical to use AI-generated art in professional competitions?",
+        "Should there be a universal basic income for all citizens?",
+        "Can social media activism create real social change?",
+        "Is it better to specialize in one field or develop skills across disciplines?",
         # Descriptive / Reflective
         "Describe a place that has had a deep impact on you.",
         "A typical day in the life of a university student.",
         "Describe the most useful app or technology you use daily.",
         "Your experience learning something difficult and how you overcame it.",
         "The impact of music or art on your productivity and focus.",
+        "A moment when your perspective on life changed.",
+        "Describe your workspace or study setup and how it affects your work.",
+        "Reflect on a time you failed and what it taught you.",
+        "Describe an interaction with technology that changed how you learn.",
+        "A personal tradition or habit that helps you stay focused.",
         # Analytical / Expository
         "How social media affects students’ attention spans.",
         "The role of libraries in the digital age.",
         "The benefits and drawbacks of part-time jobs for students.",
         "The importance of writing by hand in the digital era.",
-        "How technology is reshaping the future of education."
+        "How technology is reshaping the future of education.",
+        "The rise of short-form video content and its effect on communication.",
+        "The impact of gamification in modern education.",
+        "The impact of gamification in modern education.",
     ]
     random.seed(time.time())
     return {"prompt": random.choice(topics)}
