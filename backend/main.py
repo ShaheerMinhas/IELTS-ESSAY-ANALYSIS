@@ -14,14 +14,20 @@ import google.generativeai as genai
 CLOUDINARY_UPLOAD_URL = "https://api.cloudinary.com/v1_1/dzfoiqap7/raw/upload"
 CLOUDINARY_UPLOAD_PRESET = "nlp-ielts"  # Replace with actual preset name
 
-# Initialize app
 app = FastAPI()
+
+# Strict CORS origin for your frontend domain
+origins = [
+    "https://essaylogger.netlify.app",  # frontend URL
+]
+
+# Apply CORS middleware early
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://essaylogger.netlify.app"],
+    allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["*"],  # Allow all methods including OPTIONS
+    allow_headers=["*"],  # Allow all headers (esp. for JSON and Auth)
 )
 
 
@@ -62,6 +68,9 @@ def upload_to_cloudinary(file_path: Path, folder: str = "default") -> Union[str,
     except Exception as e:
         print("Upload error:", e)
         return None
+@app.options("/{rest_of_path:path}")
+async def preflight_handler(rest_of_path: str, request: Request):
+    return JSONResponse(content={"message": "CORS preflight"}, status_code=200)
 
 # Report Endpoint
 @app.post("/report")
