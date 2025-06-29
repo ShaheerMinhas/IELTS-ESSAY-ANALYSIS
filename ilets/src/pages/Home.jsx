@@ -150,17 +150,17 @@ const Home = () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [handleKeyDown]);
-
   const handleSubmit = async () => {
     if (submitted) return; // prevent multiple submissions
     if (!text.trim()) {
       alert("Please write something before submitting.");
       return;
     }
-
+  
     setSubmitted(true);
-
+  
     try {
+      // 🔹 1. Submit essay to analysis/report backend
       const response = await fetch("https://nlp-project-14iy.onrender.com/report", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -173,22 +173,33 @@ const Home = () => {
           user_id,
         }),
       });
-
+  
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
         const message = errorData.detail || errorData.message || "Unknown server error.";
         throw new Error(message);
       }
+  
       const result = await response.json();
       console.log("Submitted:", result);
+  
+      // 🔹 2. Trigger BotStreet email notification (no need to wait or block UX)
+      fetch("https://botstreet2025.onrender.com/api/auth/essaySubmit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ user_id }), // or pass extra info if needed
+      }).catch((err) => console.warn("Email trigger failed:", err));
+  
       alert("Essay submitted!");
-      navigate("/feedback", { state: { report: result.report,  user_id } }); // redirect with report
+      navigate("/feedback", { state: { report: result.report, user_id } }); // redirect with report
+  
     } catch (error) {
       console.error("Submit error:", error);
       alert("Submission failed.");
       setSubmitted(false);
     }
   };
+  
   const wordCount = text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
 
 
